@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(myfristapp());
+  runApp(MyFirstApp());
 }
 
-class myfristapp extends StatelessWidget {
+class MyFirstApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
         title: Text('Facebook Profile'),
         backgroundColor: Color(0xff000000),
       ),
-      body: Stack(
+     body: Stack(
         children: [
           Container(
             height: 200,
@@ -34,37 +34,39 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 80,
-                  backgroundImage: NetworkImage(
-                      'https://static.printler.com/cache/8/e/1/a/0/c/8e1a0c16bf0c2cfa3bc131c209051cf5b64a2c46.jpg'),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  'Ilyass Ouhsseine',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Heyy, im learning Flutter',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
+      
+       Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 80,
+              backgroundImage: NetworkImage(
+                  'https://static.printler.com/cache/8/e/1/a/0/c/8e1a0c16bf0c2cfa3bc131c209051cf5b64a2c46.jpg'),
             ),
-          ),
-          FloatingActionButton.extended(
-            onPressed: () {
-              // Add your onPressed code here!
-            },
-            label: const Text('Add me'),
-            icon: const Icon(Icons.add),
-          ),
-        ],
+            SizedBox(height: 20),
+            Text(
+              'Ilyass Ouhsseine',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Heyy, im learning Flutter',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 20), // Spacing of 20 pixels between bio and button
+            FloatingActionButton.extended(
+              onPressed: () {},
+              label: const Text('Add'),
+              icon: const Icon(Icons.add),
+            ),
+          ],
+        ),
       ),
-    );
-  }
+        ],
+     );
+    )
+    }
+
 }
+
