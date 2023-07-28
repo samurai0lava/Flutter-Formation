@@ -1,72 +1,101 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyFirstApp());
-}
+void main() => runApp(LoginPageApp());
 
-class MyFirstApp extends StatelessWidget {
+class LoginPageApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProfilePage(),
+      title: 'Login Page',
+      home: LoginPage(),
     );
   }
 }
 
-class ProfilePage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Facebook Profile'),
-        backgroundColor: Color(0xff000000),
+        title: Text('Welcome to The Surfing App'),
+        backgroundColor: Colors.blueGrey,
+        centerTitle: true,
       ),
-     body: Stack(
-        children: [
-          Container(
-            height: 200,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                    'https://e1.pxfuel.com/desktop-wallpaper/303/608/desktop-wallpaper-woman-yelling-at-a-cat-meme-upscale-sad-cat-meme-thumbnail.jpg'),
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
-      
-       Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 80,
-              backgroundImage: NetworkImage(
-                  'https://static.printler.com/cache/8/e/1/a/0/c/8e1a0c16bf0c2cfa3bc131c209051cf5b64a2c46.jpg'),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Ilyass Ouhsseine',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Heyy, im learning Flutter',
-              style: TextStyle(fontSize: 16),
-            ),
-            SizedBox(height: 20), // Spacing of 20 pixels between bio and button
-            FloatingActionButton.extended(
-              onPressed: () {},
-              label: const Text('Add'),
-              icon: const Icon(Icons.add),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: LoginForm(),
         ),
       ),
-        ],
-     );
-    )
-    }
+    );
+  }
+}
 
+class LoginForm extends StatefulWidget {
+  @override
+  _LoginFormState createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  void _login() {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
+    // Here you can implement your login logic,
+    // like calling an authentication API or checking credentials.
+
+    print('Email: $email');
+    print('Password: $password');
+  }
+  
+
+  @override
+  Widget build(BuildContext context) {
+    var padding = Padding;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Image(
+          image: NetworkImage(
+              'https://cdn.pixabay.com/photo/2017/04/08/10/23/surfing-2212948_1280.jpg'), // Replace 'assets/logo.png' with the path to your logo image.
+        ),
+        SizedBox(height: 20.0),
+        TextField(
+          controller: _emailController,
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            labelText: 'Email',
+            border: OutlineInputBorder(),
+          ),
+        ),
+        SizedBox(height: 20.0),
+        TextField(
+          controller: _passwordController,
+          obscureText: true,
+          decoration: InputDecoration(
+            labelText: 'Password',
+            border: OutlineInputBorder(),
+          ),
+        ),
+        SizedBox(height: 20.0),
+        TextButton(
+          onPressed: _login,
+          child: Text('Login'),
+          style: TextButton.styleFrom(backgroundColor: Color(0xffffffff)),
+        ),
+        SizedBox(height: 10.0),
+        TextButton(
+          onPressed: _login,
+          child: Text('sign in'),
+        ),
+        child : copyr
+      ],
+    );
+  }
 }
 
